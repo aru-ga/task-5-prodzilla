@@ -3,22 +3,22 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main              # Runs on pushes to the main branch
-      - 'feature/*'       # Runs on pushes to any feature branch (future use)
-      - 'bugfix/*'        # Runs on pushes to any bugfix branch (future use)
+      - main              
+      - 'feature/*'       
+      - 'bugfix/*'
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Defines the OS for the CI environment
+    runs-on: ubuntu-latest  
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v3  # Updated to version 3
+        uses: actions/checkout@v3  
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3  # Updated to version 3
+        uses: actions/setup-node@v3  
         with:
-          node-version: '20'  # Change to the latest Node.js version
+          node-version: '20'  
 
       - name: Install dependencies
         run: npm install

@@ -62,8 +62,11 @@ describe("Book Controller", () => {
                 json: jest.fn(),
             } as unknown as Response;
 
-            const duplicateError = new Error("Duplicate key error");
-            (duplicateError as any).code = 11000;
+            const duplicateError = {
+                name: 'MongoError',
+                code: 11000,
+                message: 'E11000 duplicate key error collection: test.books index: title_1 dup key: { title: "Duplicate Book Title" }',
+            };
 
             (Book.prototype.save as jest.Mock).mockRejectedValue(duplicateError);
 

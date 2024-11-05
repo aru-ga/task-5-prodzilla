@@ -1,24 +1,19 @@
 import { Request, Response } from 'express';
 import Book from '../models/Book';
 
-export const createBook = async (req: Request, res: Response): Promise<void> => {
-    const { title, author, publishedDate, isbn } = req.body;
+export const createBook = async (req: Request, res: Response) => {
     try {
-        const newBook = new Book({ title, author, publishedDate, isbn });
-        await newBook.save();
-        res.status(201).json(newBook);
-    } catch (error: unknown) {
-        if (error instanceof Error) {
-            if ((error as any).code === 11000) { 
-                res.status(409).json({ message: 'Duplicate title or ISBN' });
-            } else {
-                res.status(400).json({ message: error.message });
-            }
-        } else {
-            res.status(500).json({ message: 'An unknown error occurred.' });
+        const newBook = new Book(req.body);
+        const savedBook = await newBook.save();
+        res.status(201).json(savedBook);
+    } catch (error: any) {
+        if (error.name === "MongoError" && error.code === 11000) {
+            return res.status(409).json({ message: "Duplicate title or ISBN" });
         }
+        res.status(400).json({ message: error.message });
     }
 };
+
 
 
 export const getBooks = async (req: Request, res: Response): Promise<void> => {

@@ -1,4 +1,4 @@
-// src/index.ts
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -23,7 +23,7 @@ app.use(session({
 }));
 
 app.use('/api', bookRoutes);
-app.use('/api/auth', authRoutes); // Add auth routes
+app.use('/api/auth', authRoutes); 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(PORT, () => {

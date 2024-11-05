@@ -1,7 +1,7 @@
 {
-  "name": "task-4",
+  "name": "task-5",
   "version": "1.0.0",
-  "description": "used for prodzilla 4th-task",
+  "description": "used for prodzilla 5th-task",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node src/index.ts",

@@ -3,7 +3,6 @@
 
 [![CI/CD Pipeline](https://github.com/aru-ga/task-5-prodzilla/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/aru-ga/task-5-prodzilla/actions/workflows/ci.yml)
 
-![Build Status](https://github.com/<username>/<repo>/actions/workflows/<workflow_file_name>.yml/badge.svg)
 
 ## Description
 
@@ -27,13 +26,3 @@ The Book Management API is a simple RESTful API built with Node.js, Express, and
 - Docker
 - Jest
 - GitHub Actions
-
-## Installation
-
-To install and run the project locally, follow these steps:
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/<username>/<repo>.git
-   cd <repo>
